@@ -8,6 +8,7 @@ const productRoutes = require("./routes/productRoutes");
 const menuRoutes = require("./routes/menuRoutes");
 const dishRoutes = require("./routes/dishRoutes");
 const authRoutes = require("./routes/authRoutes");
+const fdcRoutes = require("./routes/fdcRoutes");
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/menus", menuRoutes);
 app.use("/api/dishes", dishRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/fdc", fdcRoutes);
 
 // Запуск сервера
 const PORT = process.env.PORT || 5000;

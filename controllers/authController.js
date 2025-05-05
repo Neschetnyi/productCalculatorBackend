@@ -20,7 +20,10 @@ const register = async (req, res) => {
     if (userExists)
       return res.status(400).json({ message: "Пользователь уже существует" });
 
-    const user = new User({ username, password });
+    // Хешируем пароль перед сохранением
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = new User({ username, password: hashedPassword });
     await user.save();
 
     res
